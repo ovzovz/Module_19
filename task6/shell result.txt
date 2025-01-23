@@ -1,0 +1,24 @@
+
+>>> from task1.models import Buyer
+>>> buyers=Buyer.objects.all()
+>>> for buyer in buyers:
+           print (buyer.id, buyer.name, buyer.balance, buyer.age)
+... ... 
+2 Buyer1 23.00 23
+3 Buyer2 555.00 55
+4 Buyer3 111.00 33
+>>> buyer=Buyer.objects.get(id=3)
+>>> print (buyer.name, buyer.balance, buyer.age)
+Buyer2 555.00 55
+>>> buyers=Buyer.objects.filter(balance__gt=100)
+>>> for buyer in buyers:
+    print (buyer.name, buyer.balance)
+    ... ... 
+... 
+Buyer2 555.00
+Buyer3 111.00
+>>> Buyer.objects.create(name='Buyer+', balance=123.45, age=77)
+<Buyer: Buyer+>
+>>> Buyer.objects.filter(age__lt=50).count()
+2
+>>> 
